@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 320px;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+            background: #fff;
+            padding: 5px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px 4px 0 0;
+            border-bottom: none;
+        }
+
+        .toolbar button {
+            padding: 4px 8px;
+            font-weight: bold;
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            font-size: 12px;
+        }
+
+        .toolbar button:hover {
+            background: #e5e7eb;
+        }
+
+        #noteInput {
+            width: 100%;
+            min-height: 150px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #d1d5db;
+            border-radius: 0 0 4px 4px;
+            background: white;
+            font-size: 14px;
+            line-height: 1.5;
+            outline: none;
+        }
+
+        #noteInput:focus {
+            border-color: #2563eb;
+        }
+
+        .scope-selector {
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: none;
+            font-size: 12px;
+            transition: opacity 0.2s;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        #saveBtn {
+            background: #2563eb;
+            color: white;
+        }
+
+        #deleteBtn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .status {
+            font-size: 11px;
+            color: green;
+            display: none;
+            font-weight: 500;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h3 div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3 img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #allNotesBtn {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #allNotesBtn:hover {
+            background: #f3f4f6;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            color: #6b7280;
+            text-align: right;
+            margin-top: 5px;
+            height: 14px;
+        }
+
+        /* List View Styles */
+        #listView {
+            display: none;
+        }
+
+        .note-item {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .note-item:last-child {
+            border-bottom: none;
+        }
+
+        .note-link {
+            font-size: 13px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+
+        .note-link:hover {
+            text-decoration: underline;
+        }
+
+        .note-preview {
+            font-size: 12px;
+            color: #6b7280;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .empty-list {
+            text-align: center;
+            color: #9ca3af;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        .back-btn {
+            margin-bottom: 10px;
+            background: transparent;
+            border: none;
+            color: #2563eb;
+            cursor: pointer;
+            padding: 0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1f2937;
+                color: #f3f4f6;
+            }
+
+            h3 {
+                color: #f3f4f6;
+            }
+
+            .toolbar {
+                background: #374151;
+                border-color: #4b5563;
+            }
+
+            .toolbar button {
+                background: #4b5563;
+                color: #e5e7eb;
+                border-color: #6b7280;
+            }
+
+            .toolbar button:hover {
+                background: #6b7280;
+            }
+
+            #noteInput {
+                background: #111827;
+                border-color: #4b5563;
+                color: #f3f4f6;
+            }
+
+            #noteInput:focus {
+                border-color: #60a5fa;
+            }
+
+            #allNotesBtn {
+                color: #e5e7eb;
+                border-color: #4b5563;
+            }
+
+            #allNotesBtn:hover {
+                background: #374151;
+            }
+
+            .note-item {
+                border-bottom-color: #374151;
+            }
+
+            .note-link {
+                color: #60a5fa;
+            }
+
+            .note-preview {
+                color: #9ca3af;
+            }
+
+            .back-btn {
+                color: #60a5fa;
+            }
+
+            label {
+                color: #d1d5db;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        <div><img src="icon.png" alt=""> Context Note</div>
+        <button id="allNotesBtn" title="View All Notes">☰</button>
+    </h3>
+
+    <div id="editorView">
+        <div class="scope-selector">
+            <label title="Note is linked to this specific page URL only"><input type="radio" name="scope" value="page"
+                    checked> This Page</label>
+            <label title="Note is shared across the entire website domain"><input type="radio" name="scope"
+                    value="site"> Entire Site</label>
+        </div>
+
+        <div class="toolbar">
+            <button data-cmd="bold" title="Bold">B</button>
+            <button data-cmd="italic" title="Italic">I</button>
+            <button data-cmd="underline" title="Underline">U</button>
+            <button data-cmd="insertUnorderedList" title="Bullet List">• List</button>
+            <button data-cmd="insertOrderedList" title="Numbered List">1. List</button>
+        </div>
+
+        <div id="noteInput" contenteditable="true" placeholder="Write your note here..."></div>
+        <div id="timestamp" class="timestamp"></div>
+
+        <div class="footer">
+            <button id="deleteBtn" class="action-btn">Delete</button>
+            <span id="status" class="status">Saved!</span>
+            <button id="saveBtn" class="action-btn">Save Note</button>
+        </div>
+    </div>
+
+    <div id="listView">
+        <button id="backBtn" class="back-btn">← Back to Note</button>
+        <div id="notesList"></div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
