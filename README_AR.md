@@ -68,5 +68,5 @@
 ---
 
 <div align="center">
-  <a href="./README.md">🇺🇸 Read Documentation in English</a>
+  <a href="./README.md">Read Documentation in English</a>
 </div>
