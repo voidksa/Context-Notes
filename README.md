@@ -18,6 +18,7 @@
 - **✍️ Rich Text Editor**: Format your notes with **Bold**, *Italics*, Underline, and Lists (Bullet/Numbered).
 - **💾 Auto-Save**: No need to click save. Your notes are saved automatically as you type.
 - **🌑 Dark Mode Support**: Seamlessly adapts to your system's color theme.
+- **🌍 Multi-language Support**: Fully localized for English and Arabic (العربية) with RTL support.
 - **👀 Live Indicator**: A subtle floating icon (📝) appears on pages where you have saved notes, so you never miss them.
 - **🗂️ Note Manager**: View, manage, and navigate to all your saved notes from a single "All Notes" view.
 - **🔒 Privacy First**: All data is stored locally in your browser (`chrome.storage.local`). No cloud sync, no tracking, no data leaves your device.
@@ -53,6 +54,19 @@
 - We do **not** collect, store, or transmit your data to any external servers.
 - All notes are stored exclusively on your local machine using the browser's storage capabilities.
 
+## 🔄 Changelog
+
+### v1.1.0
+- **New Feature**: Added complete Arabic language support (UI translation & RTL layout).
+- **Improved**: Smart text direction detection (`dir="auto"`) for mixed-language notes.
+- **Fixed**: Resolved cursor jumping issue when opening the editor.
+
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the [GPLv3 License](./LICENSE) - see the LICENSE file for details.
+
+---
+
+<div align="center">
+  <a href="./README_AR.md">🇮🇶 اقرأ الوثائق باللغة العربية</a>
+</div>

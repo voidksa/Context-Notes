@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Context Notes",
-    "version": "1.0",
+    "version": "1.1.0",
     "description": "Write private notes for specific websites or pages.",
     "permissions": [
         "storage",
@@ -16,6 +16,16 @@
         "default_popup": "popup.html",
         "default_icon": "icon.png"
     },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icon.png"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -28,5 +38,8 @@
                 "content.css"
             ]
         }
-    ]
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"
+    }
 }
