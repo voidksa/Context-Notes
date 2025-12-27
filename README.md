@@ -68,5 +68,5 @@ This project is licensed under the [GPLv3 License](./LICENSE) - see the LICENSE 
 ---
 
 <div align="center">
-  <a href="./README_AR.md">🇮🇶 اقرأ الوثائق باللغة العربية</a>
+  <a href="./README_AR.md">🇸🇦 اقرأ الوثائق باللغة العربية</a>
 </div>
