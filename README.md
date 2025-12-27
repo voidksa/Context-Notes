@@ -1,5 +1,9 @@
 # 📝 Context Notes
 
+<a href="https://chromewebstore.google.com/detail/ahojoenkfcnaacnadmlkagjncbapinij" target="_blank">
+  <img src="https://img.shields.io/badge/Chrome_Web_Store-Available_Now-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Available in Chrome Web Store" />
+</a>
+
 **Context Notes** is a lightweight, privacy-focused Chrome extension that lets you attach sticky notes to specific web pages or entire websites. Never forget why you bookmarked a page or where you left off.
 
 <p align="center">
